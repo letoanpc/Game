@@ -1,0 +1,118 @@
+<div class="navbar navbar-inverse set-radius-zero">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+
+                <img src="/images/logo.png" />
+            </a>
+
+        </div>
+
+        <div class="right-div">
+            <a href="/dang-xuat" class="btn btn-info pull-right">LOG ME OUT</a>
+        </div>
+    </div>
+</div>
+<!-- LOGO HEADER END-->
+<section class="menu-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-collapse collapse ">
+                    <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        <li><a href="#">DASHBOARD</a></li>
+
+                        <li><a href="#">FORMS</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">UI ELEMENTS <i
+                                    class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="ui.html">UI ELEMENTS</a>
+                                </li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> TABS & PANELS</a></li>
+                        <li><a href="/san-pham">PRODUCTS</a></li>
+                        <li><a href="/danh-muc" class="menu-top-active">CATEGORY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- MENU SECTION END-->
+
+<div class="col-md-12">
+    <h4 class="header-line">Thêm mới sản phẩm</h4>
+
+</div>
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-6">
+            <form role="form" action="/danh-muc" method="post" enctype="form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" onChange="validation()" type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" onChange="validation()" rows="3" id="description"
+                        name="description"></textarea>
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+            </form>
+        </div>
+        </form>
+    </div>
+</div>
+
+<section class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                &copy; 19xx 26-03-2022 |<a href="#" target="_blank"> Designed by :
+                    phamdien9xx@gmail.com</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+
+    const validation = () => {
+        const name = document.getElementById('name').value;
+        const price = document.getElementById('price').value;
+        const quantity = document.getElementById('quantity').value;
+        const released = document.getElementById('released').value;
+        const name = document.getElementById('name').value;
+
+        const submit = document.getElementById('submit');
+
+        if (!name || name.trim().length() == 0) {
+            submit.disabled = true;
+        } else {
+            submit.disabled = false;
+        }
+    }
+
+    const onChangeFile = () => {
+        const file = document.getElementById('image-file').files[0];
+        const reader = new FileReader();
+        reader.onload = e => {
+            document.getElementById('image-view').src = e.target.result;
+            document.getElementById('image-view').style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    }
+</script>
